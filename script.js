@@ -122,7 +122,7 @@ const playNextSong = () => {
   }
 };
 
-const playPreviousSong = () =>{
+const playPreviousSong = () => {
    if (userData?.currentSong === null) return;
    else {
     const currentSongIndex = getCurrentSongIndex();
@@ -155,7 +155,13 @@ const deleteSong = (id) => {
   userData.songs = userData?.songs.filter((song) => song.id !== id);
   renderSongs(userData?.songs); 
   highlightCurrentSong(); 
-  setPlayButtonAccessibleText(); 
+  setPlayButtonAccessibleText();
+
+  if (userData?.songs.length === 0) {
+    const resetButton = document.createElement("button");
+  
+  }
+
   };
 
 const setPlayerDisplay = () => {
